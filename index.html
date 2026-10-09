@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دعوة زفاف محمد و غادة</title>
+<meta name="description" content="حفل زفاف محمد و غادة يوم الجمعة 30 أكتوبر 2026 بقاعة Haifa Palace مرناق">
+<meta property="og:title" content="دعوة زفاف محمد و غادة">
+<meta property="og:description" content="الجمعة 30 أكتوبر 2026 على الساعة الثالثة مساءً، قاعة Haifa Palace مرناق">
+<meta name="theme-color" content="#FBF8F1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF8F1;
+    --paper:#FFFDF8;
+    --cream:#F3ECDD;
+    --gold:#A8823A;
+    --gold-light:#D8BE82;
+    --bronze:#5B4318;
+    --muted:#7A6648;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Amiri',serif;
+    font-size:1.15rem;
+    line-height:2;
+    color:var(--muted);
+    background:var(--ivory);
+    overflow-x:hidden;
+  }
+  body.locked{overflow:hidden;height:100vh}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+  .gold{
+    background:linear-gradient(160deg,#6E5020 10%,#B8913F 40%,#E9D29A 55%,#A8823A 78%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    padding:.05em .15em;
+  }
+
+  /* ---------- Intro : el envelope ---------- */
+  #intro{
+    position:fixed;inset:0;z-index:100;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+    padding:1.5rem;text-align:center;
+    background:radial-gradient(ellipse at center,#FFFBF2 0%,#EFE3C8 100%);
+    transition:opacity 1s ease,visibility 1s ease;
+  }
+  #intro.gone{opacity:0;visibility:hidden}
+  .intro-names{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(2.2rem,9vw,3rem);line-height:1.5;color:var(--bronze);transition:opacity .5s ease}
+  .intro-hint{transition:opacity .5s ease}
+  #intro.opening .intro-names,#intro.opening .intro-hint{opacity:0}
+
+  .envelope{position:relative;width:min(82vw,360px);aspect-ratio:3/2;perspective:1200px;cursor:pointer}
+  .env-back{position:absolute;inset:0;background:#E6D4AC;border-radius:6px;box-shadow:0 24px 50px rgba(91,67,24,.25)}
+  .env-letter{
+    position:absolute;inset:7% 6%;z-index:1;
+    display:flex;justify-content:center;padding-top:8%;
+    background:var(--paper);border:1px solid var(--gold-light);border-radius:4px;
+    font-family:'Aref Ruqaa',serif;font-size:1.4rem;color:var(--gold);
+    transition:transform 1.1s cubic-bezier(.6,0,.3,1) .55s;
+  }
+  .env-front{
+    position:absolute;inset:0;z-index:2;border-radius:6px;background:#F0E3C3;
+    clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%);
+  }
+  .env-flap{
+    position:absolute;top:0;left:0;right:0;height:60%;z-index:3;background:#E2CC98;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top;transition:transform .7s ease,z-index 0s .35s;
+  }
+  .seal{
+    position:absolute;left:50%;top:60%;z-index:4;
+    width:74px;height:74px;margin:-37px 0 0 -37px;
+    border:none;border-radius:50%;cursor:pointer;
+    background:radial-gradient(circle at 35% 30%,#EBD08A,#A8823A 58%,#6E5020);
+    box-shadow:0 5px 14px rgba(0,0,0,.25),inset 0 0 0 5px rgba(255,255,255,.12);
+    color:#FFF6DF;font-family:'Amiri',serif;font-style:italic;font-size:1.3rem;
+    animation:breathe 2.2s ease-in-out infinite;transition:opacity .4s,transform .4s;
+  }
+  @keyframes breathe{50%{transform:scale(1.07)}}
+  .envelope.open .env-flap{transform:rotateX(180deg);z-index:0}
+  .envelope.open .env-letter{transform:translateY(-58%)}
+  .envelope.open .seal{opacity:0;transform:scale(.4);animation:none;pointer-events:none}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;min-height:100vh;min-height:100svh;
+    display:flex;align-items:center;justify-content:center;
+    padding:5.5rem 1.6rem 4.5rem;text-align:center;overflow:hidden;
+  }
+  .hero-inner{position:relative;max-width:560px}
+  .frame{position:absolute;inset:12px;border:1px solid rgba(168,130,58,.5);pointer-events:none}
+  .frame::after{content:"";position:absolute;inset:5px;border:1px solid rgba(168,130,58,.22)}
+  .corner{position:absolute;width:clamp(130px,36vw,240px);height:clamp(130px,36vw,240px);pointer-events:none}
+  .corner.tr{top:0;right:0;transform:scaleX(-1)}
+  .corner.bl{bottom:0;left:0;transform:scaleY(-1)}
+  .bismillah{font-size:clamp(2.6rem,10vw,3.8rem);line-height:1.3;color:var(--bronze)}
+  .salat{font-size:.95rem;margin-bottom:1.8rem}
+  .family{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.7rem,6.5vw,2.4rem);line-height:1.7;color:var(--bronze)}
+  .names{
+    display:flex;flex-direction:column;align-items:center;margin-top:.8rem;
+    font-family:'Aref Ruqaa',serif;font-weight:700;
+    font-size:clamp(3.6rem,17vw,6.2rem);line-height:1.35;
+  }
+  .names .and{font-size:.4em;line-height:1.1;color:var(--gold)}
+  .latin{font-style:italic;font-size:1.35rem;color:var(--gold)}
+  .date-block{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.8rem;color:var(--bronze)}
+  .date-block span{min-width:6.2rem;padding:.15rem .6rem;border-block:1px solid var(--gold-light)}
+  .date-block strong{font-size:3.4rem;line-height:1;color:var(--gold)}
+
+  .step{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease;transition-delay:calc(var(--i) * .16s + .2s)}
+  body.opened .step{opacity:1;transform:none}
+
+  /* ---------- Compte à rebours ---------- */
+  .countdown-sec{padding:3.5rem 1.4rem 4.5rem;text-align:center}
+  .sec-title{margin-bottom:1.8rem;font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.9rem,7vw,2.6rem);line-height:1.6;color:var(--bronze)}
+  .countdown{display:flex;justify-content:center;gap:clamp(.5rem,3vw,1.2rem)}
+  .countdown div{
+    width:clamp(70px,20vw,96px);aspect-ratio:1;border-radius:50%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:var(--paper);border:1px solid var(--gold-light);
+  }
+  .countdown span{font-size:clamp(1.6rem,6vw,2.2rem);font-weight:700;line-height:1.1;color:var(--bronze)}
+  .countdown small{font-size:.9rem;line-height:1.4}
+  .cd-done{font-family:'Aref Ruqaa',serif;font-size:2.2rem}
+
+  /* ---------- El mawa3ed (9wes) ---------- */
+  .events{padding:4.5rem 1.4rem 5rem;text-align:center;background:var(--cream)}
+  .arches{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.6rem;max-width:780px;margin:0 auto}
+  .arch{
+    position:relative;padding:3.4rem 1.4rem 2.2rem;
+    background:var(--paper);border:1px solid rgba(168,130,58,.45);
+    border-radius:999px 999px 8px 8px;
+  }
+  .arch::before{content:"";position:absolute;inset:7px;border:1px solid rgba(168,130,58,.2);border-radius:inherit;pointer-events:none}
+  .ev-icon{display:block;width:58px;height:40px;margin:0 auto .3rem;color:var(--gold)}
+  .arch h3{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:1.9rem;line-height:1.7;color:var(--bronze)}
+  .when{margin-top:.4rem}
+  .where{margin-top:.6rem;font-weight:700;color:var(--bronze)}
+  .actions{position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:1.4rem}
+  .btn{
+    display:inline-block;padding:.45rem 1.2rem;border-radius:40px;
+    font-size:1rem;text-decoration:none;color:#FFF9EC;
+    background:linear-gradient(160deg,#8A6A28,#B8913F);border:1px solid #8A6A28;
+  }
+  .btn.ghost{background:transparent;color:var(--bronze);border-color:var(--gold)}
+
+  /* ---------- El 5atma ---------- */
+  .closing{position:relative;padding:5rem 1.6rem 7rem;text-align:center;overflow:hidden}
+  .closing-line{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.9rem,7vw,2.7rem);line-height:1.7}
+  .sign{margin-top:.8rem;color:var(--bronze)}
+
+  /* ---------- Wrod + musique ---------- */
+  #petals{position:fixed;inset:0;z-index:60;pointer-events:none;overflow:hidden}
+  #petals i{
+    position:absolute;top:-20px;width:11px;height:15px;opacity:0;
+    border-radius:80% 0 80% 0;background:linear-gradient(135deg,#F1DFA8,#B8913F);
+    animation:fall linear forwards;
+  }
+  @keyframes fall{
+    0%{opacity:0;transform:translate(0,0) rotate(0deg) scale(var(--s))}
+    10%{opacity:.85}
+    80%{opacity:.7}
+    100%{opacity:0;transform:translate(var(--x),105vh) rotate(540deg) scale(var(--s))}
+  }
+  .music-btn{
+    position:fixed;left:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;color:var(--bronze);cursor:pointer;
+    background:rgba(255,253,248,.92);border:1px solid var(--gold);
+    box-shadow:0 4px 14px rgba(91,67,24,.18);
+  }
+  .music-btn[hidden]{display:none}
+  .music-btn[aria-pressed="false"]{opacity:.5}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  }
+</style>
+</head>
+<body class="locked">
+
+<!-- Rasm el wrod el dhahbi (yesta3mel fel coins) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="200">
+      <stop offset="0" stop-color="#6E5020"/>
+      <stop offset=".45" stop-color="#C9A452"/>
+      <stop offset="1" stop-color="#A8823A"/>
+    </linearGradient>
+    <g id="branch">
+      <path d="M34 24 C80 8 130 30 196 10" fill="none" stroke="url(#goldGrad)" stroke-width="1.6" stroke-linecap="round"/>
+      <g fill="url(#goldGrad)">
+        <ellipse cx="66" cy="12" rx="13" ry="4.5" transform="rotate(-28 66 12)"/>
+        <ellipse cx="78" cy="26" rx="13" ry="4.5" transform="rotate(24 78 26)"/>
+        <ellipse cx="112" cy="12" rx="12" ry="4.2" transform="rotate(-22 112 12)"/>
+        <ellipse cx="126" cy="27" rx="12" ry="4.2" transform="rotate(18 126 27)"/>
+        <ellipse cx="158" cy="10" rx="10" ry="3.6" transform="rotate(-30 158 10)"/>
+        <ellipse cx="170" cy="22" rx="10" ry="3.6" transform="rotate(10 170 22)"/>
+      </g>
+      <circle cx="98" cy="19" r="6" fill="none" stroke="url(#goldGrad)" stroke-width="1.4"/>
+      <circle cx="98" cy="19" r="2.2" fill="url(#goldGrad)"/>
+    </g>
+    <symbol id="floral" viewBox="0 0 200 200">
+      <use href="#branch"/>
+      <use href="#branch" transform="matrix(0 1 1 0 0 0)"/>
+      <g transform="translate(32 32)" fill="none" stroke="url(#goldGrad)" stroke-width="1.7" stroke-linecap="round">
+        <circle r="19" fill="#FBF8F1"/>
+        <path d="M0-7a7 7 0 1 1-7 7a10 10 0 0 1 10-10a13 13 0 0 1 4 23"/>
+        <path d="M-14-5a15 15 0 0 1 23-9"/>
+        <path d="M-12 11a14 14 0 0 0 21 3"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ===== El envelope ===== -->
+<div id="intro">
+  <p class="intro-names">محمد و غادة</p>
+  <div class="envelope" id="envelope">
+    <div class="env-back"></div>
+    <div class="env-letter">دعوة زفاف</div>
+    <div class="env-front"></div>
+    <div class="env-flap"></div>
+    <button class="seal" aria-label="افتح الدعوة" lang="en" dir="ltr">M&amp;G</button>
+  </div>
+  <p class="intro-hint">اضغط على الختم لفتح الدعوة</p>
+</div>
+
+<div id="petals" aria-hidden="true"></div>
+
+<!-- ===== El carte ===== -->
+<header class="hero">
+  <div class="frame" aria-hidden="true"></div>
+  <svg class="corner tr" aria-hidden="true"><use href="#floral"/></svg>
+  <div class="hero-inner">
+    <p class="bismillah step" style="--i:0">﷽</p>
+    <p class="salat step" style="--i:1">والصلاة والسلام على أشرف المرسلين</p>
+    <p class="step" style="--i:2">بعد إهدائكم أزكى التحية وأرقى السلام، يتشرّف</p>
+    <p class="family step" style="--i:3">كافة عائلة المرحوم يوسف رحماني</p>
+    <p class="step" style="--i:4">باستدعائكم لحضور حفل زفاف ابنهم</p>
+    <h1 class="names step" style="--i:5">
+      <span class="gold">محمد</span>
+      <span class="and">و</span>
+      <span class="gold">غادة</span>
+    </h1>
+    <p class="latin step" style="--i:6" lang="en" dir="ltr">Mohamed &amp; Ghada</p>
+    <div class="date-block step" style="--i:7">
+      <span>الجمعة</span>
+      <strong>30</strong>
+      <span>أكتوبر 2026</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ===== Compte à rebours ===== -->
+  <section class="countdown-sec">
+    <h2 class="sec-title">يفصلنا عن يوم الفرح</h2>
+    <div class="countdown" id="countdown">
+      <div><span id="cd-d">0</span><small>يوم</small></div>
+      <div><span id="cd-h">00</span><small>ساعة</small></div>
+      <div><span id="cd-m">00</span><small>دقيقة</small></div>
+      <div><span id="cd-s">00</span><small>ثانية</small></div>
+    </div>
+  </section>
+
+  <!-- ===== El mawa3ed ===== -->
+  <section class="events">
+    <h2 class="sec-title">مواعيد الفرح</h2>
+    <div class="arches">
+
+      <!-- El 7enna w el 3cha -->
+      <article class="arch">
+        <svg class="ev-icon" viewBox="0 0 64 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M32 42V6"/><path d="M32 16c-8-1-14-6-16-12 8 0 15 5 16 12z"/><path d="M32 16c8-1 14-6 16-12-8 0-15 5-16 12z"/><path d="M32 30c-9-1-16-7-18-13 9 0 17 6 18 13z"/><path d="M32 30c9-1 16-7 18-13-9 0-17 6-18 13z"/></g></svg>
+        <h3>الحنّة و العشاء</h3>
+        <p class="when">الأربعاء 28 أكتوبر 2026<br>على الساعة السابعة مساءً</p>
+        <p class="where">قاعة الأفراح النافورة<br>المغيرة</p>
+        <div class="actions">
+          <!-- ⚠️ BADDEL el lien hedha b lien Google Maps el s7i7 mta3 qa3et En-Nafoura -->
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=قاعة+الأفراح+النافورة+المغيرة" target="_blank" rel="noopener">الموقع على الخريطة</a>
+          <a class="btn ghost" id="cal-henna" href="#" target="_blank" rel="noopener">أضف إلى الرزنامة</a>
+        </div>
+      </article>
+
+      <!-- El 3ors -->
+      <article class="arch">
+        <svg class="ev-icon" viewBox="0 0 64 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="25" cy="27" r="13"/><circle cx="39" cy="27" r="13"/><path d="M21 9l4-5 4 5-4 4z"/></g></svg>
+        <h3>حفل الزفاف</h3>
+        <p class="when">الجمعة 30 أكتوبر 2026<br>على الساعة الثالثة مساءً</p>
+        <p class="where">قاعة الأفراح Haifa Palace<br>مرناق</p>
+        <div class="actions">
+          <a class="btn" href="https://maps.google.com/maps?cid=1735186216236955319" target="_blank" rel="noopener">الموقع على الخريطة</a>
+          <a class="btn ghost" id="cal-wedding" href="#" target="_blank" rel="noopener">أضف إلى الرزنامة</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer class="closing">
+  <svg class="corner bl" aria-hidden="true"><use href="#floral"/></svg>
+  <p class="closing-line"><span class="gold">و في انتظاركم، حضوركم شرف لنا</span></p>
+  <p class="sign">عائلة المرحوم يوسف رحماني</p>
+  <p class="latin" lang="en" dir="ltr">Mohamed &amp; Ghada</p>
+</footer>
+
+<!-- Musique (optionnel): 7ott fichier esmou music.mp3 m3a index.html -->
+<audio id="music" src="music.mp3" loop preload="none"></audio>
+<button class="music-btn" id="musicBtn" aria-label="تشغيل أو إيقاف الموسيقى" aria-pressed="true" hidden>♫</button>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var intro = document.getElementById('intro');
+  var envelope = document.getElementById('envelope');
+  var audio = document.getElementById('music');
+  var musicBtn = document.getElementById('musicBtn');
+  var opened = false;
+
+  // Musique
+  function startMusic(){
+    audio.play().then(function(){ musicBtn.hidden = false; }).catch(function(){});
+  }
+  musicBtn.addEventListener('click', function(){
+    if (audio.paused){ audio.play(); musicBtn.setAttribute('aria-pressed','true'); }
+    else { audio.pause(); musicBtn.setAttribute('aria-pressed','false'); }
+  });
+
+  // Wrod dhahbi yta7 ba3d ma tet7all el envelope
+  function petalBurst(){
+    if (reduce) return;
+    var box = document.getElementById('petals');
+    for (var i = 0; i < 28; i++){
+      var p = document.createElement('i');
+      p.style.left = (Math.random() * 100) + '%';
+      p.style.setProperty('--s', (0.6 + Math.random() * 0.8).toFixed(2));
+      p.style.setProperty('--x', Math.round(Math.random() * 120 - 60) + 'px');
+      p.style.animationDuration = (5 + Math.random() * 4).toFixed(1) + 's';
+      p.style.animationDelay = (Math.random() * 2.5).toFixed(1) + 's';
+      box.appendChild(p);
+    }
+    setTimeout(function(){ box.remove(); }, 12000);
+  }
+
+  // T7al el envelope
+  function openInvite(){
+    if (opened) return;
+    opened = true;
+    intro.classList.add('opening');
+    envelope.classList.add('open');
+    startMusic();
+    setTimeout(function(){
+      intro.classList.add('gone');
+      document.body.classList.remove('locked');
+      document.body.classList.add('opened');
+      petalBurst();
+    }, reduce ? 0 : 2300);
+  }
+  envelope.addEventListener('click', openInvite);
+
+  // Compte à rebours (wa9t tounes UTC+1)
+  var weddingTime = new Date('2026-10-30T15:00:00+01:00').getTime();
+  var cdBox = document.getElementById('countdown');
+  var D = document.getElementById('cd-d'), H = document.getElementById('cd-h'),
+      M = document.getElementById('cd-m'), S = document.getElementById('cd-s');
+  function pad(n){ return String(n).padStart(2, '0'); }
+  function tick(){
+    var diff = weddingTime - Date.now();
+    if (diff <= 0){
+      cdBox.innerHTML = '<p class="cd-done"><span class="gold">اليوم يوم الفرح</span></p>';
+      return false;
+    }
+    D.textContent = Math.floor(diff / 864e5);
+    H.textContent = pad(Math.floor(diff / 36e5) % 24);
+    M.textContent = pad(Math.floor(diff / 6e4) % 60);
+    S.textContent = pad(Math.floor(diff / 1e3) % 60);
+    return true;
+  }
+  if (tick()){
+    var timer = setInterval(function(){ if (!tick()) clearInterval(timer); }, 1000);
+  }
+
+  // Liens Google Calendar
+  function gcal(title, dates, place){
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+      + '&text=' + encodeURIComponent(title)
+      + '&dates=' + dates
+      + '&location=' + encodeURIComponent(place);
+  }
+  document.getElementById('cal-henna').href =
+    gcal('الحنة و العشاء: محمد و غادة', '20261028T180000Z/20261028T230000Z', 'قاعة الأفراح النافورة، المغيرة');
+  document.getElementById('cal-wedding').href =
+    gcal('حفل زفاف محمد و غادة', '20261030T140000Z/20261030T200000Z', 'Haifa Palace، مرناق');
+})();
+</script>
+</body>
+</html>
