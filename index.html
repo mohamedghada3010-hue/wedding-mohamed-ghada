@@ -2,368 +2,712 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>دعوة زفاف محمد و غادة</title>
 <meta name="description" content="حفل زفاف محمد و غادة يوم الجمعة 30 أكتوبر 2026 بقاعة Haifa Palace مرناق">
 <meta property="og:title" content="دعوة زفاف محمد و غادة">
 <meta property="og:description" content="الجمعة 30 أكتوبر 2026 على الساعة الثالثة مساءً، قاعة Haifa Palace مرناق">
-<meta name="theme-color" content="#FBF8F1">
+<meta name="theme-color" content="#EADCF0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ivory:#FBF8F1;
-    --paper:#FFFDF8;
-    --cream:#F3ECDD;
-    --gold:#A8823A;
-    --gold-light:#D8BE82;
-    --bronze:#5B4318;
-    --muted:#7A6648;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{
-    font-family:'Amiri',serif;
-    font-size:1.15rem;
-    line-height:2;
-    color:var(--muted);
-    background:var(--ivory);
-    overflow-x:hidden;
-  }
-  body.locked{overflow:hidden;height:100vh}
-  :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+:root{
+  --blush:#F8EEF2;
+  --paper:#FFFBFC;
+  --pink:#E59BC0;
+  --rose:#C9729F;
+  --mauve:#9A4F82;
+  --plum:#5E2E52;
+  --gold:#C9A452;
+  --text:#6B4A62;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#E7D7EC}
+body{font-family:'Amiri',serif;font-size:1.15rem;line-height:2;color:var(--text);overflow-x:hidden}
+body.locked{overflow:hidden;height:100vh}
+:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
+.stage{position:relative;max-width:480px;margin:0 auto;background:var(--blush);overflow:hidden;box-shadow:0 0 70px rgba(94,46,82,.18)}
 
-  .gold{
-    background:linear-gradient(160deg,#6E5020 10%,#B8913F 40%,#E9D29A 55%,#A8823A 78%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    padding:.05em .15em;
-  }
+/* ========== El bab ========== */
+#gate{
+  position:fixed;top:0;bottom:0;left:50%;width:min(100%,480px);transform:translateX(-50%);
+  z-index:100;perspective:1600px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:opacity .8s ease 1s;
+}
+#gate.open{opacity:0;pointer-events:none}
+#gate.gone{display:none}
+.door{
+  position:absolute;top:0;bottom:0;width:50%;
+  background:linear-gradient(180deg,#F8F0F6 0%,#EBDCEC 100%);
+  box-shadow:inset 0 0 50px rgba(154,79,130,.12);
+  transition:transform 1.6s cubic-bezier(.7,0,.25,1);
+}
+.door.left{left:0;transform-origin:left center;border-right:1px solid rgba(154,79,130,.25)}
+.door.right{right:0;transform-origin:right center;border-left:1px solid rgba(154,79,130,.25)}
+#gate.open .door.left{transform:rotateY(-105deg)}
+#gate.open .door.right{transform:rotateY(105deg)}
+.door-panel{position:absolute;inset:16% 16% 8%;border:1.5px solid rgba(201,164,82,.6);border-radius:200px 200px 6px 6px}
+.door-panel::after{content:"";position:absolute;inset:7px;border:1px solid rgba(201,164,82,.3);border-radius:inherit}
+.knob{position:absolute;top:54%;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F2DC9C,#C9A452 60%,#8C6B26)}
+.door.left .knob{right:14px}
+.door.right .knob{left:14px}
+.gate-garland{position:absolute;top:0;left:0;width:100%;height:auto;z-index:2;pointer-events:none}
+.medallion{
+  position:relative;z-index:3;width:150px;height:150px;border-radius:50%;border:none;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 40%,#FFFBFC,#F3E4EF);
+  box-shadow:0 0 0 6px rgba(255,255,255,.65),0 0 0 7px rgba(201,164,82,.7),0 18px 40px rgba(94,46,82,.25);
+  font-family:'Aref Ruqaa',serif;color:var(--mauve);
+  animation:float 3s ease-in-out infinite;transition:opacity .5s,transform .5s;
+}
+.medallion::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px solid rgba(201,164,82,.6);animation:ring 2.4s ease-out infinite}
+.mono{font-size:2.4rem;line-height:1.3}
+.mono i{font-style:normal;font-family:'Amiri',serif;font-size:.7em;color:var(--gold)}
+.tap{font-family:'Amiri',serif;font-size:.85rem;line-height:1.4;color:var(--text)}
+#gate.open .medallion{opacity:0;transform:scale(.6);animation:none}
+@keyframes float{50%{transform:translateY(-8px)}}
+@keyframes ring{from{transform:scale(.9);opacity:1}to{transform:scale(1.35);opacity:0}}
 
-  /* ---------- Intro : el envelope ---------- */
-  #intro{
-    position:fixed;inset:0;z-index:100;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;
-    padding:1.5rem;text-align:center;
-    background:radial-gradient(ellipse at center,#FFFBF2 0%,#EFE3C8 100%);
-    transition:opacity 1s ease,visibility 1s ease;
-  }
-  #intro.gone{opacity:0;visibility:hidden}
-  .intro-names{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(2.2rem,9vw,3rem);line-height:1.5;color:var(--bronze);transition:opacity .5s ease}
-  .intro-hint{transition:opacity .5s ease}
-  #intro.opening .intro-names,#intro.opening .intro-hint{opacity:0}
+/* ========== El jnina ========== */
+.hero{position:relative;height:100vh;height:100svh;min-height:580px;overflow:hidden;container-type:inline-size}
+.scene{
+  position:absolute;inset:0;width:100%;height:100%;
+  transform:scale(1.15);transform-origin:50% 45%;will-change:transform;
+  transition:transform 3.5s cubic-bezier(.2,.6,.2,1);
+}
+body.opened .scene{transform:scale(1)}
+.sway{transform-box:fill-box;transform-origin:50% 0;animation:sway 4.5s ease-in-out infinite alternate}
+.sway.slow{animation-duration:6s}
+@keyframes sway{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+.bob{transform-box:fill-box;transform-origin:50% 100%;animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-3px) rotate(-1.5deg)}}
+.flow{stroke-dasharray:5 7;animation:flow .9s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-24}}
+.ripple{transform-box:fill-box;transform-origin:center;animation:ripple 3.6s ease-out infinite}
+@keyframes ripple{from{transform:scale(.4);opacity:.9}to{transform:scale(3.2);opacity:0}}
+.shimmer{animation:shimmer 3s ease-in-out infinite}
+@keyframes shimmer{50%{opacity:.15}}
+.rise{opacity:0;transform-box:fill-box;transform-origin:center;animation:rise 4.5s ease-out infinite}
+@keyframes rise{0%{transform:translate(0,0) scale(.6);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx,0px),-110px) scale(1.2);opacity:0}}
 
-  .envelope{position:relative;width:min(82vw,360px);aspect-ratio:3/2;perspective:1200px;cursor:pointer}
-  .env-back{position:absolute;inset:0;background:#E6D4AC;border-radius:6px;box-shadow:0 24px 50px rgba(91,67,24,.25)}
-  .env-letter{
-    position:absolute;inset:7% 6%;z-index:1;
-    display:flex;justify-content:center;padding-top:8%;
-    background:var(--paper);border:1px solid var(--gold-light);border-radius:4px;
-    font-family:'Aref Ruqaa',serif;font-size:1.4rem;color:var(--gold);
-    transition:transform 1.1s cubic-bezier(.6,0,.3,1) .55s;
-  }
-  .env-front{
-    position:absolute;inset:0;z-index:2;border-radius:6px;background:#F0E3C3;
-    clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%);
-  }
-  .env-flap{
-    position:absolute;top:0;left:0;right:0;height:60%;z-index:3;background:#E2CC98;
-    clip-path:polygon(0 0,100% 0,50% 100%);
-    transform-origin:top;transition:transform .7s ease,z-index 0s .35s;
-  }
-  .seal{
-    position:absolute;left:50%;top:60%;z-index:4;
-    width:74px;height:74px;margin:-37px 0 0 -37px;
-    border:none;border-radius:50%;cursor:pointer;
-    background:radial-gradient(circle at 35% 30%,#EBD08A,#A8823A 58%,#6E5020);
-    box-shadow:0 5px 14px rgba(0,0,0,.25),inset 0 0 0 5px rgba(255,255,255,.12);
-    color:#FFF6DF;font-family:'Amiri',serif;font-style:italic;font-size:1.3rem;
-    animation:breathe 2.2s ease-in-out infinite;transition:opacity .4s,transform .4s;
-  }
-  @keyframes breathe{50%{transform:scale(1.07)}}
-  .envelope.open .env-flap{transform:rotateX(180deg);z-index:0}
-  .envelope.open .env-letter{transform:translateY(-58%)}
-  .envelope.open .seal{opacity:0;transform:scale(.4);animation:none;pointer-events:none}
+.hero-text{position:absolute;left:0;right:0;top:19%;z-index:2;padding:0 1rem;text-align:center}
+.kicker,.hero-date{font-size:1.2rem;color:var(--plum);text-shadow:0 0 10px #fff,0 0 3px #fff}
+.names{
+  display:flex;flex-direction:column;align-items:center;
+  font-family:'Aref Ruqaa',serif;font-weight:700;color:var(--mauve);
+  font-size:3.8rem;font-size:clamp(3.4rem,17cqw,5.4rem);line-height:1.3;
+  text-shadow:0 0 18px rgba(255,255,255,.95),0 0 4px #fff;
+}
+.nm{padding:.15em .35em;margin:-.15em 0}
+.names .and{font-size:.45em;line-height:1.2;color:var(--rose)}
+.hero-date{margin-top:.6rem}
+.ani{opacity:0;transform:translateY(14px);transition:opacity 1.1s ease,transform 1.1s ease;transition-delay:var(--d)}
+.ani-write{clip-path:inset(0 0 0 100%);transition:clip-path 1.5s cubic-bezier(.5,0,.2,1);transition-delay:var(--d)}
+body.opened .ani{opacity:1;transform:none}
+body.opened .ani-write{clip-path:inset(0 0 0 0)}
 
-  /* ---------- Hero ---------- */
-  .hero{
-    position:relative;min-height:100vh;min-height:100svh;
-    display:flex;align-items:center;justify-content:center;
-    padding:5.5rem 1.6rem 4.5rem;text-align:center;overflow:hidden;
-  }
-  .hero-inner{position:relative;max-width:560px}
-  .frame{position:absolute;inset:12px;border:1px solid rgba(168,130,58,.5);pointer-events:none}
-  .frame::after{content:"";position:absolute;inset:5px;border:1px solid rgba(168,130,58,.22)}
-  .corner{position:absolute;width:clamp(130px,36vw,240px);height:clamp(130px,36vw,240px);pointer-events:none}
-  .corner.tr{top:0;right:0;transform:scaleX(-1)}
-  .corner.bl{bottom:0;left:0;transform:scaleY(-1)}
-  .bismillah{font-size:clamp(2.6rem,10vw,3.8rem);line-height:1.3;color:var(--bronze)}
-  .salat{font-size:.95rem;margin-bottom:1.8rem}
-  .family{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.7rem,6.5vw,2.4rem);line-height:1.7;color:var(--bronze)}
-  .names{
-    display:flex;flex-direction:column;align-items:center;margin-top:.8rem;
-    font-family:'Aref Ruqaa',serif;font-weight:700;
-    font-size:clamp(3.6rem,17vw,6.2rem);line-height:1.35;
-  }
-  .names .and{font-size:.4em;line-height:1.1;color:var(--gold)}
-  .latin{font-style:italic;font-size:1.35rem;color:var(--gold)}
-  .date-block{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.8rem;color:var(--bronze)}
-  .date-block span{min-width:6.2rem;padding:.15rem .6rem;border-block:1px solid var(--gold-light)}
-  .date-block strong{font-size:3.4rem;line-height:1;color:var(--gold)}
+.spark{
+  position:absolute;z-index:2;width:14px;height:14px;opacity:0;background:var(--gold);
+  clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);
+  animation:twinkle 3.2s ease-in-out var(--t) infinite;
+}
+@keyframes twinkle{0%,100%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1) rotate(90deg);opacity:1}}
 
-  .step{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease;transition-delay:calc(var(--i) * .16s + .2s)}
-  body.opened .step{opacity:1;transform:none}
+.bfly{position:absolute;z-index:3;left:-40px;width:28px;height:22px;pointer-events:none}
+.bfly svg{width:100%;height:100%;overflow:visible}
+.wing{transform-origin:20px 15px;animation:flap .22s ease-in-out infinite alternate}
+@keyframes flap{to{transform:scaleX(.2)}}
+.b1{top:40%;animation:fly 17s linear infinite}
+.b2{top:60%;width:22px;height:18px;animation:fly 21s linear -9s infinite}
+.b3{top:30%;left:auto;right:-40px;width:20px;height:16px;animation:flyBack 19s linear -5s infinite}
+@keyframes fly{
+  0%{transform:translate(0,0) rotate(15deg)}
+  25%{transform:translate(35cqw,-40px) rotate(-10deg)}
+  50%{transform:translate(65cqw,10px) rotate(20deg)}
+  75%{transform:translate(95cqw,-30px) rotate(-5deg)}
+  100%{transform:translate(130cqw,0) rotate(15deg)}
+}
+@keyframes flyBack{
+  0%{transform:translate(0,0) rotate(-15deg)}
+  30%{transform:translate(-40cqw,30px) rotate(10deg)}
+  60%{transform:translate(-75cqw,-20px) rotate(-20deg)}
+  100%{transform:translate(-130cqw,10px) rotate(-10deg)}
+}
 
-  /* ---------- Compte à rebours ---------- */
-  .countdown-sec{padding:3.5rem 1.4rem 4.5rem;text-align:center}
-  .sec-title{margin-bottom:1.8rem;font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.9rem,7vw,2.6rem);line-height:1.6;color:var(--bronze)}
-  .countdown{display:flex;justify-content:center;gap:clamp(.5rem,3vw,1.2rem)}
-  .countdown div{
-    width:clamp(70px,20vw,96px);aspect-ratio:1;border-radius:50%;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    background:var(--paper);border:1px solid var(--gold-light);
-  }
-  .countdown span{font-size:clamp(1.6rem,6vw,2.2rem);font-weight:700;line-height:1.1;color:var(--bronze)}
-  .countdown small{font-size:.9rem;line-height:1.4}
-  .cd-done{font-family:'Aref Ruqaa',serif;font-size:2.2rem}
+.scroll-hint{
+  position:absolute;bottom:3%;left:50%;transform:translateX(-50%);z-index:2;
+  padding:.1rem 1rem;border-radius:20px;background:rgba(255,251,252,.8);
+  font-size:.95rem;color:var(--plum);white-space:nowrap;
+  opacity:0;transition:opacity 1s ease 4.2s;
+}
+body.opened .scroll-hint{opacity:1}
+.scroll-hint::after{
+  content:"";display:block;width:8px;height:8px;margin:0 auto .35rem;
+  border-right:1.5px solid var(--plum);border-bottom:1.5px solid var(--plum);
+  transform:rotate(45deg);animation:nudge 1.6s ease-in-out infinite;
+}
+@keyframes nudge{50%{transform:translateY(4px) rotate(45deg)}}
 
-  /* ---------- El mawa3ed (9wes) ---------- */
-  .events{padding:4.5rem 1.4rem 5rem;text-align:center;background:var(--cream)}
-  .arches{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.6rem;max-width:780px;margin:0 auto}
-  .arch{
-    position:relative;padding:3.4rem 1.4rem 2.2rem;
-    background:var(--paper);border:1px solid rgba(168,130,58,.45);
-    border-radius:999px 999px 8px 8px;
-  }
-  .arch::before{content:"";position:absolute;inset:7px;border:1px solid rgba(168,130,58,.2);border-radius:inherit;pointer-events:none}
-  .ev-icon{display:block;width:58px;height:40px;margin:0 auto .3rem;color:var(--gold)}
-  .arch h3{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:1.9rem;line-height:1.7;color:var(--bronze)}
-  .when{margin-top:.4rem}
-  .where{margin-top:.6rem;font-weight:700;color:var(--bronze)}
-  .actions{position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:1.4rem}
-  .btn{
-    display:inline-block;padding:.45rem 1.2rem;border-radius:40px;
-    font-size:1rem;text-decoration:none;color:#FFF9EC;
-    background:linear-gradient(160deg,#8A6A28,#B8913F);border:1px solid #8A6A28;
-  }
-  .btn.ghost{background:transparent;color:var(--bronze);border-color:var(--gold)}
+/* ========== El contenu ========== */
+.content{padding:3.5rem 1.2rem 1rem;background:linear-gradient(180deg,#F3E6F1 0%,var(--blush) 25%)}
+.sec{margin-bottom:3.5rem;text-align:center}
+.sec-title{margin-bottom:1.4rem;font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.9rem,8vw,2.4rem);line-height:1.6;color:var(--plum)}
+.reveal{opacity:0;transform:translateY(40px) scale(.97);filter:blur(4px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1),filter 1.1s ease}
+.reveal.in{opacity:1;transform:none;filter:none}
 
-  /* ---------- El 5atma ---------- */
-  .closing{position:relative;padding:5rem 1.6rem 7rem;text-align:center;overflow:hidden}
-  .closing-line{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.9rem,7vw,2.7rem);line-height:1.7}
-  .sign{margin-top:.8rem;color:var(--bronze)}
+.card{
+  position:relative;padding:5rem 1.4rem 2.8rem;background:var(--paper);border-radius:24px;
+  border:1px solid rgba(201,114,159,.25);box-shadow:0 18px 40px rgba(94,46,82,.1);
+}
+.card::before{content:"";position:absolute;inset:8px;border:1px solid rgba(201,164,82,.35);border-radius:18px;pointer-events:none}
+.c-corner{position:absolute;top:-4px;width:96px;height:96px;pointer-events:none}
+.c-corner.tl{left:-4px}
+.c-corner.tr{right:-4px;transform:scaleX(-1)}
+.basmala{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.7rem,7.5vw,2.2rem);line-height:1.6;color:var(--plum)}
+.small{margin-bottom:1.2rem;font-size:.95rem}
+.family{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.6rem,7vw,2.1rem);line-height:1.7;color:var(--plum)}
+.card-names{margin:.4rem 0;font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(2.4rem,11vw,3rem);line-height:1.6;color:var(--mauve)}
+.card-names span{font-size:.5em;color:var(--rose)}
 
-  /* ---------- Wrod + musique ---------- */
-  #petals{position:fixed;inset:0;z-index:60;pointer-events:none;overflow:hidden}
-  #petals i{
-    position:absolute;top:-20px;width:11px;height:15px;opacity:0;
-    border-radius:80% 0 80% 0;background:linear-gradient(135deg,#F1DFA8,#B8913F);
-    animation:fall linear forwards;
-  }
-  @keyframes fall{
-    0%{opacity:0;transform:translate(0,0) rotate(0deg) scale(var(--s))}
-    10%{opacity:.85}
-    80%{opacity:.7}
-    100%{opacity:0;transform:translate(var(--x),105vh) rotate(540deg) scale(var(--s))}
-  }
-  .music-btn{
-    position:fixed;left:16px;bottom:16px;z-index:70;
-    width:46px;height:46px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.3rem;color:var(--bronze);cursor:pointer;
-    background:rgba(255,253,248,.92);border:1px solid var(--gold);
-    box-shadow:0 4px 14px rgba(91,67,24,.18);
-  }
-  .music-btn[hidden]{display:none}
-  .music-btn[aria-pressed="false"]{opacity:.5}
+.countdown{display:flex;justify-content:center;gap:.7rem}
+.cd{
+  position:relative;width:72px;height:72px;border-radius:50%;background:var(--paper);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 8px 20px rgba(94,46,82,.1);
+}
+.cd::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px dashed rgba(201,114,159,.6);animation:spin 20s linear infinite}
+.cd b{display:block;font-size:1.7rem;line-height:1.1;color:var(--plum)}
+.cd small{font-size:.85rem;line-height:1.3}
+.pop{animation:pop .45s ease}
+.cd-done{font-family:'Aref Ruqaa',serif;font-size:2.2rem;color:var(--mauve)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pop{from{transform:scale(1.3);opacity:.3}}
 
-  @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
-  }
+.event{
+  position:relative;margin:0 auto 1.6rem;padding:3.6rem 1.4rem 2.2rem;background:var(--paper);
+  border-radius:170px 170px 22px 22px;border:1px solid rgba(201,114,159,.25);
+  box-shadow:0 14px 34px rgba(94,46,82,.1);
+}
+.event::before{content:"";position:absolute;inset:8px;border:1px solid rgba(201,164,82,.35);border-radius:inherit;pointer-events:none}
+.ev-icon{display:block;width:64px;height:44px;margin:0 auto .4rem;color:var(--rose)}
+.ev-icon.leafy{transform-origin:50% 100%;animation:leafy 3s ease-in-out infinite alternate}
+@keyframes leafy{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.twinkle-s{transform-box:fill-box;transform-origin:center;animation:twinkle 2.4s ease-in-out infinite}
+.event h3{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:1.9rem;line-height:1.7;color:var(--plum)}
+.when{margin-top:.3rem}
+.where{margin-top:.5rem;font-weight:700;color:var(--plum)}
+.actions{position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:1.3rem}
+.btn{
+  display:inline-block;padding:.5rem 1.2rem;border-radius:40px;font-size:1rem;text-decoration:none;
+  color:#fff;background:linear-gradient(135deg,#B65F90,#D88AB3);box-shadow:0 6px 16px rgba(182,95,144,.3);
+  transition:transform .2s;
+}
+.btn:active{transform:scale(.96)}
+.btn.ghost{background:transparent;color:var(--plum);border:1px solid var(--rose);box-shadow:none}
+
+.closing{padding-bottom:3rem}
+.swans{display:block;width:min(260px,78%);margin:0 auto .6rem;overflow:visible}
+.closing-line{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(1.9rem,8vw,2.5rem);line-height:1.7;color:var(--mauve)}
+.sign{margin-top:.6rem;color:var(--plum)}
+.latin{margin-top:.2rem;font-style:italic;font-size:1.3rem;color:var(--rose)}
+
+/* ========== Warda ta7 + musique ========== */
+#petals{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden}
+#petals i{
+  position:absolute;top:-24px;width:12px;height:14px;opacity:0;border-radius:70% 0 70% 0;
+  background:linear-gradient(135deg,#FBD9E8,#E59BC0);animation:fall linear infinite;
+}
+@keyframes fall{
+  0%{opacity:0;transform:translate(0,0) rotate(0deg) scale(var(--s))}
+  10%{opacity:.85}
+  85%{opacity:.75}
+  100%{opacity:0;transform:translate(var(--x),110vh) rotate(600deg) scale(var(--s))}
+}
+.music-btn{
+  position:fixed;left:16px;bottom:16px;z-index:70;width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;gap:3px;cursor:pointer;
+  background:rgba(255,251,252,.92);border:1px solid var(--rose);box-shadow:0 6px 18px rgba(94,46,82,.2);
+}
+.music-btn[hidden]{display:none}
+.music-btn span{width:3px;height:18px;border-radius:2px;background:var(--mauve);transform-origin:50% 100%;animation:eq .9s ease-in-out infinite}
+.music-btn span:nth-child(2){animation-delay:-.45s}
+.music-btn span:nth-child(3){animation-delay:-.2s}
+.music-btn span:nth-child(4){animation-delay:-.65s}
+.music-btn[aria-pressed="false"] span{animation-play-state:paused;opacity:.45}
+@keyframes eq{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+}
 </style>
 </head>
 <body class="locked">
 
-<!-- Rasm el wrod el dhahbi (yesta3mel fel coins) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- ===== El rsoumat (wisteria, warda, lotus, baja3...) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <linearGradient id="goldGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="200">
-      <stop offset="0" stop-color="#6E5020"/>
-      <stop offset=".45" stop-color="#C9A452"/>
-      <stop offset="1" stop-color="#A8823A"/>
+    <linearGradient id="wisG" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="68">
+      <stop offset="0" stop-color="#A88BD3"/>
+      <stop offset=".55" stop-color="#C6A3DC"/>
+      <stop offset="1" stop-color="#F0B9D3"/>
     </linearGradient>
-    <g id="branch">
-      <path d="M34 24 C80 8 130 30 196 10" fill="none" stroke="url(#goldGrad)" stroke-width="1.6" stroke-linecap="round"/>
-      <g fill="url(#goldGrad)">
-        <ellipse cx="66" cy="12" rx="13" ry="4.5" transform="rotate(-28 66 12)"/>
-        <ellipse cx="78" cy="26" rx="13" ry="4.5" transform="rotate(24 78 26)"/>
-        <ellipse cx="112" cy="12" rx="12" ry="4.2" transform="rotate(-22 112 12)"/>
-        <ellipse cx="126" cy="27" rx="12" ry="4.2" transform="rotate(18 126 27)"/>
-        <ellipse cx="158" cy="10" rx="10" ry="3.6" transform="rotate(-30 158 10)"/>
-        <ellipse cx="170" cy="22" rx="10" ry="3.6" transform="rotate(10 170 22)"/>
+    <linearGradient id="lotusG" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#FCE6F0"/>
+      <stop offset="1" stop-color="#D8679E"/>
+    </linearGradient>
+    <linearGradient id="marble" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E8DEE5"/>
+      <stop offset=".5" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E2D7DF"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A6D8EA"/>
+      <stop offset="1" stop-color="#5FA9CC"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <pattern id="balusters" patternUnits="userSpaceOnUse" x="0" y="527" width="20" height="58">
+      <path d="M6 0h8v4q-2 2-2 5q5 8 3 20q-1 8-3 14q2 3 2 7v8h-8v-8q0-4 2-7q-2-6-3-14q-2-12 3-20q0-3-2-5z" fill="#FCF8FA" stroke="#DCCFD8" stroke-width=".7"/>
+    </pattern>
+
+    <g id="wis">
+      <ellipse cx="-11" cy="-3" rx="8" ry="3" fill="#7FA27E" transform="rotate(-25 -11 -3)"/>
+      <ellipse cx="11" cy="-3" rx="8" ry="3" fill="#6E946F" transform="rotate(25 11 -3)"/>
+      <g fill="url(#wisG)">
+        <circle cx="-8" cy="4" r="5"/><circle cx="1" cy="3" r="5.5"/><circle cx="9" cy="5" r="4.8"/>
+        <circle cx="-7" cy="13" r="4.8"/><circle cx="2" cy="12" r="5"/><circle cx="9" cy="14" r="4.2"/>
+        <circle cx="-5" cy="22" r="4.4"/><circle cx="3" cy="22" r="4.6"/><circle cx="9" cy="24" r="3.4"/>
+        <circle cx="-3" cy="31" r="4"/><circle cx="4" cy="31" r="4"/>
+        <circle cx="-2" cy="39" r="3.6"/><circle cx="4" cy="40" r="3.3"/>
+        <circle cx="1" cy="47" r="3.3"/><circle cx="-3" cy="50" r="2.5"/>
+        <circle cx="1" cy="55" r="2.8"/><circle cx="-1" cy="61" r="2.3"/><circle cx="0" cy="66" r="1.8"/>
       </g>
-      <circle cx="98" cy="19" r="6" fill="none" stroke="url(#goldGrad)" stroke-width="1.4"/>
-      <circle cx="98" cy="19" r="2.2" fill="url(#goldGrad)"/>
+      <g fill="#FFFFFF" opacity=".45">
+        <circle cx="-1" cy="2" r="1.6"/><circle cx="0" cy="11" r="1.5"/><circle cx="1" cy="20" r="1.4"/>
+        <circle cx="2" cy="29" r="1.2"/><circle cx="2" cy="38" r="1"/>
+      </g>
     </g>
-    <symbol id="floral" viewBox="0 0 200 200">
-      <use href="#branch"/>
-      <use href="#branch" transform="matrix(0 1 1 0 0 0)"/>
-      <g transform="translate(32 32)" fill="none" stroke="url(#goldGrad)" stroke-width="1.7" stroke-linecap="round">
-        <circle r="19" fill="#FBF8F1"/>
-        <path d="M0-7a7 7 0 1 1-7 7a10 10 0 0 1 10-10a13 13 0 0 1 4 23"/>
-        <path d="M-14-5a15 15 0 0 1 23-9"/>
-        <path d="M-12 11a14 14 0 0 0 21 3"/>
-      </g>
+
+    <g id="bloom">
+      <circle cx="0" cy="0" r="9" fill="#F4C3DA"/>
+      <circle cx="10" cy="-4" r="7" fill="#E9A2C6"/>
+      <circle cx="-9" cy="5" r="7" fill="#E9A2C6"/>
+      <circle cx="5" cy="9" r="8" fill="#F7D3E4"/>
+      <circle cx="-4" cy="-8" r="6" fill="#DC85B3"/>
+      <circle cx="13" cy="7" r="5" fill="#D776A9"/>
+      <circle cx="2" cy="1" r="2" fill="#FFF3F8"/>
+    </g>
+
+    <g id="leafs">
+      <ellipse cx="-14" cy="0" rx="12" ry="5" fill="#86A985" transform="rotate(-30 -14 0)"/>
+      <ellipse cx="14" cy="4" rx="12" ry="5" fill="#6F9572" transform="rotate(25 14 4)"/>
+      <ellipse cx="0" cy="14" rx="10" ry="4.5" fill="#9DBB98" transform="rotate(80 0 14)"/>
+    </g>
+
+    <g id="lotus" fill="url(#lotusG)">
+      <path d="M0 0C-14-4-22-14-24-22C-14-20-6-12 0 0Z"/>
+      <path d="M0 0C14-4 22-14 24-22C14-20 6-12 0 0Z"/>
+      <path d="M0 0C-10-8-12-20-8-30C-2-22 2-10 0 0Z"/>
+      <path d="M0 0C10-8 12-20 8-30C2-22-2-10 0 0Z"/>
+      <path d="M0 0C-6-12-5-26 0-34C5-26 6-12 0 0Z"/>
+    </g>
+
+    <g id="swan">
+      <ellipse cx="-8" cy="12" rx="34" ry="4" fill="#FFFFFF" opacity=".35"/>
+      <path d="M-26 8C-36 4-42-4-44-12C-34-6-28-8-20-10C-6-14 14-12 22-4C28 2 28 6 24 9C8 14-14 13-26 8Z" fill="#FFFFFF" stroke="#DCCBDA" stroke-width="1"/>
+      <path d="M-22-3C-10-11 6-10 15-3M-18 2C-8-4 4-4 10 0" fill="none" stroke="#E2D2DF" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M16-4C10-18 0-30 6-42C12-54 30-50 30-36" fill="none" stroke="#DCCBDA" stroke-width="8.5" stroke-linecap="round"/>
+      <circle cx="30" cy="-35" r="6.2" fill="#DCCBDA"/>
+      <path d="M16-4C10-18 0-30 6-42C12-54 30-50 30-36" fill="none" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round"/>
+      <circle cx="30" cy="-35" r="5.2" fill="#FFFFFF"/>
+      <path d="M32-33L36-24L29.5-30Z" fill="#E8955B"/>
+      <path d="M30.5-36.5L33.5-33" stroke="#3B2A35" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="28.6" cy="-37" r=".9" fill="#3B2A35"/>
+    </g>
+
+    <g id="vine">
+      <path d="M8 30C30 120 0 200 22 280S10 420 30 480" fill="none" stroke="#6E8F6E" stroke-width="2.5"/>
+      <use href="#wis" transform="translate(44 120) scale(.9)"/>
+      <use href="#wis" transform="translate(50 230) scale(.8)"/>
+      <use href="#wis" transform="translate(46 330) scale(.85)"/>
+      <use href="#leafs" transform="translate(16 110) scale(1.2)"/>
+      <use href="#bloom" transform="translate(18 106) scale(1.3)"/>
+      <use href="#leafs" transform="translate(34 160)"/>
+      <use href="#bloom" transform="translate(34 158)"/>
+      <use href="#leafs" transform="translate(10 205) scale(1.3)"/>
+      <use href="#bloom" transform="translate(12 202) scale(1.4)"/>
+      <use href="#leafs" transform="translate(30 255) scale(1.1)"/>
+      <use href="#bloom" transform="translate(30 252) scale(1.1)"/>
+      <use href="#leafs" transform="translate(12 305) scale(1.4)"/>
+      <use href="#bloom" transform="translate(12 300) scale(1.5)"/>
+      <use href="#leafs" transform="translate(34 350)"/>
+      <use href="#bloom" transform="translate(34 348) scale(1.05)"/>
+      <use href="#leafs" transform="translate(14 400) scale(1.3)"/>
+      <use href="#bloom" transform="translate(14 396) scale(1.35)"/>
+      <use href="#leafs" transform="translate(30 450) scale(1.1)"/>
+      <use href="#bloom" transform="translate(30 446) scale(1.15)"/>
+    </g>
+
+    <symbol id="cornerFlora" viewBox="0 0 120 120" overflow="visible">
+      <path d="M0 14C40 4 80 18 120 8" fill="none" stroke="#6E8F6E" stroke-width="1.8"/>
+      <path d="M14 0C4 40 18 80 8 120" fill="none" stroke="#6E8F6E" stroke-width="1.8"/>
+      <use href="#wis" transform="translate(58 14) scale(.55)"/>
+      <use href="#wis" transform="translate(80 12) scale(.45)"/>
+      <use href="#wis" transform="translate(100 10) scale(.35)"/>
+      <use href="#leafs" transform="translate(40 12) scale(.8)"/>
+      <use href="#leafs" transform="translate(12 42) scale(.8) rotate(90)"/>
+      <use href="#bloom" transform="translate(16 16) scale(1.2)"/>
+      <use href="#bloom" transform="translate(38 10) scale(.7)"/>
+      <use href="#bloom" transform="translate(10 40) scale(.75)"/>
+      <use href="#bloom" transform="translate(8 66) scale(.55)"/>
     </symbol>
   </defs>
 </svg>
 
-<!-- ===== El envelope ===== -->
-<div id="intro">
-  <p class="intro-names">محمد و غادة</p>
-  <div class="envelope" id="envelope">
-    <div class="env-back"></div>
-    <div class="env-letter">دعوة زفاف</div>
-    <div class="env-front"></div>
-    <div class="env-flap"></div>
-    <button class="seal" aria-label="افتح الدعوة" lang="en" dir="ltr">M&amp;G</button>
-  </div>
-  <p class="intro-hint">اضغط على الختم لفتح الدعوة</p>
+<!-- ===== El bab ===== -->
+<div id="gate">
+  <div class="door left"><div class="door-panel"></div><span class="knob"></span></div>
+  <div class="door right"><div class="door-panel"></div><span class="knob"></span></div>
+  <svg class="gate-garland" viewBox="0 0 400 150" aria-hidden="true">
+    <path d="M-10 14C80 34 140 4 200 20S320 4 410 16" fill="none" stroke="#6E8F6E" stroke-width="3"/>
+    <use href="#leafs" transform="translate(60 24)"/>
+    <use href="#leafs" transform="translate(200 20) scale(.9)"/>
+    <use href="#leafs" transform="translate(340 12)"/>
+    <g class="sway"><use href="#wis" transform="translate(14 16) scale(1.7)"/></g>
+    <g class="sway slow" style="animation-delay:-2s"><use href="#wis" transform="translate(44 24) scale(1.3)"/></g>
+    <g class="sway" style="animation-delay:-1s"><use href="#wis" transform="translate(76 26) scale(1.5)"/></g>
+    <g class="sway slow" style="animation-delay:-3s"><use href="#wis" transform="translate(110 20) scale(1)"/></g>
+    <g class="sway" style="animation-delay:-1.5s"><use href="#wis" transform="translate(150 14) scale(.8)"/></g>
+    <g class="sway slow" style="animation-delay:-2.5s"><use href="#wis" transform="translate(250 14) scale(.8)"/></g>
+    <g class="sway" style="animation-delay:-.5s"><use href="#wis" transform="translate(290 14) scale(1)"/></g>
+    <g class="sway slow" style="animation-delay:-3.5s"><use href="#wis" transform="translate(324 12) scale(1.5)"/></g>
+    <g class="sway" style="animation-delay:-1.2s"><use href="#wis" transform="translate(356 12) scale(1.3)"/></g>
+    <g class="sway slow" style="animation-delay:-2.2s"><use href="#wis" transform="translate(386 14) scale(1.7)"/></g>
+    <use href="#bloom" transform="translate(6 10) scale(1.3)"/>
+    <use href="#bloom" transform="translate(394 10) scale(1.3)"/>
+  </svg>
+  <button class="medallion" aria-label="افتح الدعوة">
+    <span class="mono">م <i>&amp;</i> غ</span>
+    <span class="tap">اضغط لفتح الدعوة</span>
+  </button>
 </div>
 
 <div id="petals" aria-hidden="true"></div>
 
-<!-- ===== El carte ===== -->
-<header class="hero">
-  <div class="frame" aria-hidden="true"></div>
-  <svg class="corner tr" aria-hidden="true"><use href="#floral"/></svg>
-  <div class="hero-inner">
-    <p class="bismillah step" style="--i:0">﷽</p>
-    <p class="salat step" style="--i:1">والصلاة والسلام على أشرف المرسلين</p>
-    <p class="step" style="--i:2">بعد إهدائكم أزكى التحية وأرقى السلام، يتشرّف</p>
-    <p class="family step" style="--i:3">كافة عائلة المرحوم يوسف رحماني</p>
-    <p class="step" style="--i:4">باستدعائكم لحضور حفل زفاف ابنهم</p>
-    <h1 class="names step" style="--i:5">
-      <span class="gold">محمد</span>
-      <span class="and">و</span>
-      <span class="gold">غادة</span>
-    </h1>
-    <p class="latin step" style="--i:6" lang="en" dir="ltr">Mohamed &amp; Ghada</p>
-    <div class="date-block step" style="--i:7">
-      <span>الجمعة</span>
-      <strong>30</strong>
-      <span>أكتوبر 2026</span>
+<div class="stage">
+
+  <!-- ===== El jnina ===== -->
+  <header class="hero">
+    <svg class="scene" viewBox="0 0 400 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#E4D0EE"/>
+          <stop offset=".5" stop-color="#F4E7F2"/>
+          <stop offset="1" stop-color="#F7EEF1"/>
+        </linearGradient>
+        <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <rect width="400" height="760" fill="url(#sky)"/>
+      <ellipse cx="200" cy="330" rx="170" ry="230" fill="url(#glow)"/>
+
+      <g filter="url(#soft)" opacity=".75">
+        <ellipse cx="90" cy="400" rx="70" ry="110" fill="#D9C6E6"/>
+        <ellipse cx="315" cy="390" rx="75" ry="115" fill="#E6CBE0"/>
+        <ellipse cx="130" cy="470" rx="120" ry="55" fill="#C8DCC9"/>
+        <ellipse cx="290" cy="465" rx="130" ry="60" fill="#D3E3D0"/>
+        <ellipse cx="200" cy="505" rx="200" ry="40" fill="#BCD4BF"/>
+      </g>
+
+      <path d="M58 232A142 142 0 0 1 342 232L320 232A120 120 0 0 0 80 232Z" fill="url(#marble)" opacity=".95"/>
+      <path d="M80 232A120 120 0 0 1 320 232" fill="none" stroke="#E2D6DF" stroke-width="1.2"/>
+      <rect x="58" y="232" width="22" height="282" fill="url(#marble)"/>
+      <rect x="320" y="232" width="22" height="282" fill="url(#marble)"/>
+      <rect x="52" y="226" width="34" height="9" rx="2" fill="#F7F1F5"/>
+      <rect x="314" y="226" width="34" height="9" rx="2" fill="#F7F1F5"/>
+
+      <use href="#vine"/>
+      <use href="#vine" transform="translate(400 0) scale(-1 1)"/>
+
+      <path d="M-10 16C60 40 120 6 200 24S330 4 410 18" fill="none" stroke="#6E8F6E" stroke-width="3"/>
+      <use href="#leafs" transform="translate(40 26)"/>
+      <use href="#leafs" transform="translate(120 16) scale(.9)"/>
+      <use href="#leafs" transform="translate(200 24) scale(.8)"/>
+      <use href="#leafs" transform="translate(280 14) scale(.9)"/>
+      <use href="#leafs" transform="translate(360 16)"/>
+      <g class="sway" style="animation-delay:-1s"><use href="#wis" transform="translate(8 18) scale(1.9)"/></g>
+      <g class="sway slow" style="animation-delay:-3s"><use href="#wis" transform="translate(30 24) scale(1.5)"/></g>
+      <g class="sway" style="animation-delay:-2s"><use href="#wis" transform="translate(52 28) scale(1.7)"/></g>
+      <g class="sway slow" style="animation-delay:-4s"><use href="#wis" transform="translate(74 28) scale(1.3)"/></g>
+      <g class="sway" style="animation-delay:-1.5s"><use href="#wis" transform="translate(96 24) scale(1.1)"/></g>
+      <g class="sway slow" style="animation-delay:-3.5s"><use href="#wis" transform="translate(118 20) scale(.85)"/></g>
+      <g class="sway" style="animation-delay:-2.5s"><use href="#wis" transform="translate(140 18) scale(.7)"/></g>
+      <g class="sway slow" style="animation-delay:-1s"><use href="#wis" transform="translate(162 18) scale(.6)"/></g>
+      <g class="sway" style="animation-delay:-3s"><use href="#wis" transform="translate(184 22) scale(.5)"/></g>
+      <g class="sway slow" style="animation-delay:-2s"><use href="#wis" transform="translate(216 22) scale(.5)"/></g>
+      <g class="sway" style="animation-delay:-4s"><use href="#wis" transform="translate(238 18) scale(.6)"/></g>
+      <g class="sway slow" style="animation-delay:-1.2s"><use href="#wis" transform="translate(260 15) scale(.7)"/></g>
+      <g class="sway" style="animation-delay:-2.8s"><use href="#wis" transform="translate(282 12) scale(.85)"/></g>
+      <g class="sway slow" style="animation-delay:-3.3s"><use href="#wis" transform="translate(304 12) scale(1.1)"/></g>
+      <g class="sway" style="animation-delay:-1.7s"><use href="#wis" transform="translate(326 12) scale(1.3)"/></g>
+      <g class="sway slow" style="animation-delay:-2.2s"><use href="#wis" transform="translate(348 14) scale(1.7)"/></g>
+      <g class="sway" style="animation-delay:-3.8s"><use href="#wis" transform="translate(370 16) scale(1.5)"/></g>
+      <g class="sway slow" style="animation-delay:-1.4s"><use href="#wis" transform="translate(392 18) scale(1.9)"/></g>
+
+      <rect x="-10" y="512" width="420" height="14" rx="3" fill="url(#marble)"/>
+      <rect x="-10" y="525" width="420" height="3" fill="#DCCFD8"/>
+      <rect x="-10" y="527" width="420" height="58" fill="url(#balusters)"/>
+      <rect x="-10" y="585" width="420" height="11" fill="url(#marble)"/>
+      <rect x="40" y="500" width="30" height="96" rx="2" fill="url(#marble)"/>
+      <rect x="330" y="500" width="30" height="96" rx="2" fill="url(#marble)"/>
+      <path d="M43 500q-2-14 12-18q14 4 12 18z" fill="#F7F1F5" stroke="#DCCFD8" stroke-width=".7"/>
+      <path d="M333 500q-2-14 12-18q14 4 12 18z" fill="#F7F1F5" stroke="#DCCFD8" stroke-width=".7"/>
+      <use href="#leafs" transform="translate(55 484)"/>
+      <use href="#bloom" transform="translate(55 478) scale(1.1)"/>
+      <use href="#leafs" transform="translate(345 484)"/>
+      <use href="#bloom" transform="translate(345 478) scale(1.1)"/>
+
+      <ellipse cx="200" cy="676" rx="196" ry="56" fill="#EDE3EA"/>
+      <ellipse cx="200" cy="672" rx="196" ry="52" fill="url(#marble)"/>
+      <ellipse cx="200" cy="676" rx="180" ry="42" fill="url(#water)"/>
+      <g class="shimmer" stroke="#FFFFFF" stroke-width="1.2" fill="none" opacity=".7">
+        <path d="M70 668q20-4 40 0"/><path d="M280 690q20-4 40 0"/><path d="M150 700q15-3 30 0"/>
+      </g>
+      <g class="shimmer" style="animation-delay:-1.5s" stroke="#FFFFFF" stroke-width="1" fill="none" opacity=".6">
+        <path d="M240 664q15-3 30 0"/><path d="M100 694q15-3 30 0"/>
+      </g>
+      <ellipse class="ripple" cx="200" cy="668" rx="18" ry="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+      <ellipse class="ripple" style="animation-delay:-1.8s" cx="200" cy="668" rx="18" ry="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+      <ellipse cx="150" cy="712" rx="16" ry="4" fill="#94B993"/>
+      <ellipse cx="252" cy="710" rx="18" ry="4.5" fill="#94B993"/>
+
+      <path d="M190 668q4-10 4-22q-6-14 0-30h12q6 16 0 30q0 12 4 22z" fill="url(#marble)" stroke="#DCCFD8" stroke-width=".7"/>
+      <path d="M158 600h84q-6 18-42 20q-36-2-42-20z" fill="url(#marble)" stroke="#DCCFD8" stroke-width=".7"/>
+      <ellipse cx="200" cy="600" rx="42" ry="6" fill="#FFFFFF" stroke="#DCCFD8" stroke-width=".7"/>
+      <ellipse cx="200" cy="600" rx="36" ry="3.6" fill="#AEDCEC"/>
+      <rect x="197" y="582" width="6" height="18" fill="url(#marble)"/>
+      <ellipse cx="200" cy="582" rx="12" ry="3" fill="#FFFFFF" stroke="#DCCFD8" stroke-width=".7"/>
+      <g fill="none" stroke="#C6EAF5" stroke-width="2" stroke-linecap="round">
+        <path class="flow" d="M200 580V548"/>
+        <path class="flow" d="M200 552C196 548 176 552 166 598"/>
+        <path class="flow" d="M200 552C204 548 224 552 234 598"/>
+        <path class="flow" d="M160 603q-6 8-8 48"/>
+        <path class="flow" d="M240 603q6 8 8 48"/>
+      </g>
+      <g fill="#E89BC1">
+        <path class="rise" style="--dx:-18px" d="M200 552c-6-6-3-11 0-7c3-4 6 1 0 7z"/>
+        <path class="rise" style="--dx:16px;animation-delay:-1.5s" d="M200 552c-6-6-3-11 0-7c3-4 6 1 0 7z"/>
+        <path class="rise" style="--dx:-4px;animation-delay:-3s" d="M200 552c-6-6-3-11 0-7c3-4 6 1 0 7z"/>
+      </g>
+
+      <g class="bob"><g transform="translate(104 684) scale(1.1)"><use href="#swan"/></g></g>
+      <g class="bob" style="animation-delay:-2s"><g transform="translate(296 684) scale(-1.1 1.1)"><use href="#swan"/></g></g>
+
+      <use href="#leafs" transform="translate(30 744) scale(2)"/>
+      <use href="#leafs" transform="translate(370 744) scale(-2 2)"/>
+      <use href="#leafs" transform="translate(110 758) scale(1.4)"/>
+      <use href="#leafs" transform="translate(290 758) scale(-1.4 1.4)"/>
+      <g class="bob"><use href="#lotus" transform="translate(40 752) scale(1.5)"/></g>
+      <g class="bob" style="animation-delay:-1.3s"><use href="#lotus" transform="translate(112 762) scale(1.05)"/></g>
+      <g class="bob" style="animation-delay:-2.6s"><use href="#lotus" transform="translate(288 762) scale(1.05)"/></g>
+      <g class="bob" style="animation-delay:-.7s"><use href="#lotus" transform="translate(360 752) scale(1.5)"/></g>
+      <use href="#bloom" transform="translate(8 732) scale(1.4)"/>
+      <use href="#bloom" transform="translate(392 732) scale(1.4)"/>
+    </svg>
+
+    <div class="hero-text">
+      <p class="kicker ani" style="--d:.7s">حفل زفاف</p>
+      <h1 class="names">
+        <span class="nm ani-write" style="--d:1.1s">محمد</span>
+        <span class="and ani" style="--d:2.2s">و</span>
+        <span class="nm ani-write" style="--d:2.5s">غادة</span>
+      </h1>
+      <p class="hero-date ani" style="--d:3.6s">الجمعة 30 أكتوبر 2026</p>
     </div>
-  </div>
-</header>
 
-<main>
-  <!-- ===== Compte à rebours ===== -->
-  <section class="countdown-sec">
-    <h2 class="sec-title">يفصلنا عن يوم الفرح</h2>
-    <div class="countdown" id="countdown">
-      <div><span id="cd-d">0</span><small>يوم</small></div>
-      <div><span id="cd-h">00</span><small>ساعة</small></div>
-      <div><span id="cd-m">00</span><small>دقيقة</small></div>
-      <div><span id="cd-s">00</span><small>ثانية</small></div>
-    </div>
-  </section>
+    <span class="spark" style="top:22%;left:22%;--t:0s"></span>
+    <span class="spark" style="top:31%;right:19%;--t:1.2s"></span>
+    <span class="spark" style="top:45%;left:17%;--t:2.1s"></span>
+    <span class="spark" style="top:51%;right:23%;--t:.6s"></span>
+    <span class="spark" style="top:37%;left:52%;--t:2.8s"></span>
 
-  <!-- ===== El mawa3ed ===== -->
-  <section class="events">
-    <h2 class="sec-title">مواعيد الفرح</h2>
-    <div class="arches">
+    <div class="bfly b1" aria-hidden="true"><svg viewBox="0 0 40 30">
+      <g class="wing"><path d="M20 15C12 2 0 2 2 10c1 6 10 7 18 5z" fill="#C79AD9"/><path d="M20 16c-8 2-14 10-9 11 4 1 8-5 9-11z" fill="#EBA7CB"/></g>
+      <g class="wing"><path d="M20 15c8-13 20-13 18-5-1 6-10 7-18 5z" fill="#C79AD9"/><path d="M20 16c8 2 14 10 9 11-4 1-8-5-9-11z" fill="#EBA7CB"/></g>
+      <rect x="19" y="8" width="2" height="14" rx="1" fill="#5E2E52"/>
+    </svg></div>
+    <div class="bfly b2" aria-hidden="true"><svg viewBox="0 0 40 30">
+      <g class="wing"><path d="M20 15C12 2 0 2 2 10c1 6 10 7 18 5z" fill="#E59BC0"/><path d="M20 16c-8 2-14 10-9 11 4 1 8-5 9-11z" fill="#F6CFE0"/></g>
+      <g class="wing"><path d="M20 15c8-13 20-13 18-5-1 6-10 7-18 5z" fill="#E59BC0"/><path d="M20 16c8 2 14 10 9 11-4 1-8-5-9-11z" fill="#F6CFE0"/></g>
+      <rect x="19" y="8" width="2" height="14" rx="1" fill="#5E2E52"/>
+    </svg></div>
+    <div class="bfly b3" aria-hidden="true"><svg viewBox="0 0 40 30">
+      <g class="wing"><path d="M20 15C12 2 0 2 2 10c1 6 10 7 18 5z" fill="#B49AD6"/><path d="M20 16c-8 2-14 10-9 11 4 1 8-5 9-11z" fill="#D9C6EC"/></g>
+      <g class="wing"><path d="M20 15c8-13 20-13 18-5-1 6-10 7-18 5z" fill="#B49AD6"/><path d="M20 16c8 2 14 10 9 11-4 1-8-5-9-11z" fill="#D9C6EC"/></g>
+      <rect x="19" y="8" width="2" height="14" rx="1" fill="#5E2E52"/>
+    </svg></div>
 
-      <!-- El 7enna w el 3cha -->
-      <article class="arch">
-        <svg class="ev-icon" viewBox="0 0 64 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M32 42V6"/><path d="M32 16c-8-1-14-6-16-12 8 0 15 5 16 12z"/><path d="M32 16c8-1 14-6 16-12-8 0-15 5-16 12z"/><path d="M32 30c-9-1-16-7-18-13 9 0 17 6 18 13z"/><path d="M32 30c9-1 16-7 18-13-9 0-17 6-18 13z"/></g></svg>
+    <p class="scroll-hint">مرّر للأسفل</p>
+  </header>
+
+  <main class="content">
+
+    <!-- ===== Carte el da3wa ===== -->
+    <section class="sec">
+      <div class="card reveal">
+        <svg class="c-corner tl" aria-hidden="true"><use href="#cornerFlora"/></svg>
+        <svg class="c-corner tr" aria-hidden="true"><use href="#cornerFlora"/></svg>
+        <p class="basmala">بسم الله الرحمن الرحيم</p>
+        <p class="small">والصلاة والسلام على أشرف المرسلين</p>
+        <p>بعد إهدائكم أزكى التحية وأرقى السلام، يتشرّف</p>
+        <p class="family">كافة عائلة المرحوم يوسف رحماني</p>
+        <p>باستدعائكم لحضور حفل زفاف ابنهم</p>
+        <p class="card-names">محمد <span>و</span> غادة</p>
+        <p>وذلك بمشيئة الله تعالى</p>
+      </div>
+    </section>
+
+    <!-- ===== Compte à rebours ===== -->
+    <section class="sec reveal">
+      <h2 class="sec-title">باقي على الفرح</h2>
+      <div class="countdown" id="countdown">
+        <div class="cd"><b id="cd-d">0</b><small>يوم</small></div>
+        <div class="cd"><b id="cd-h">00</b><small>ساعة</small></div>
+        <div class="cd"><b id="cd-m">00</b><small>دقيقة</small></div>
+        <div class="cd"><b id="cd-s">00</b><small>ثانية</small></div>
+      </div>
+    </section>
+
+    <!-- ===== El mawa3ed ===== -->
+    <section class="sec">
+      <h2 class="sec-title reveal">مواعيد الفرح</h2>
+
+      <article class="event reveal">
+        <svg class="ev-icon leafy" viewBox="0 0 64 44" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M32 42V6"/><path d="M32 16c-8-1-14-6-16-12 8 0 15 5 16 12z"/><path d="M32 16c8-1 14-6 16-12-8 0-15 5-16 12z"/><path d="M32 30c-9-1-16-7-18-13 9 0 17 6 18 13z"/><path d="M32 30c9-1 16-7 18-13-9 0-17 6-18 13z"/></g>
+        </svg>
         <h3>الحنّة و العشاء</h3>
         <p class="when">الأربعاء 28 أكتوبر 2026<br>على الساعة السابعة مساءً</p>
-        <p class="where">قاعة الأفراح النافورة<br>المغيرة</p>
+        <p class="where">قاعة الأفراح النافورة، المغيرة</p>
         <div class="actions">
-          <!-- ⚠️ BADDEL el lien hedha b lien Google Maps el s7i7 mta3 qa3et En-Nafoura -->
+          <!-- ⚠️ BADDEL el lien hedha b lien Google Maps mta3 qa3et En-Nafoura -->
           <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=قاعة+الأفراح+النافورة+المغيرة" target="_blank" rel="noopener">الموقع على الخريطة</a>
           <a class="btn ghost" id="cal-henna" href="#" target="_blank" rel="noopener">أضف إلى الرزنامة</a>
         </div>
       </article>
 
-      <!-- El 3ors -->
-      <article class="arch">
-        <svg class="ev-icon" viewBox="0 0 64 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="25" cy="27" r="13"/><circle cx="39" cy="27" r="13"/><path d="M21 9l4-5 4 5-4 4z"/></g></svg>
+      <article class="event reveal">
+        <svg class="ev-icon" viewBox="0 0 64 44" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="25" cy="27" r="13"/><circle cx="39" cy="27" r="13"/><path d="M21 9l4-5 4 5-4 4z"/></g>
+          <path class="twinkle-s" d="M35 1l1.5 3.5L40 6l-3.5 1.5L35 11l-1.5-3.5L30 6l3.5-1.5z" fill="#C9A452"/>
+        </svg>
         <h3>حفل الزفاف</h3>
         <p class="when">الجمعة 30 أكتوبر 2026<br>على الساعة الثالثة مساءً</p>
-        <p class="where">قاعة الأفراح Haifa Palace<br>مرناق</p>
+        <p class="where">قاعة الأفراح Haifa Palace، مرناق</p>
         <div class="actions">
           <a class="btn" href="https://maps.google.com/maps?cid=1735186216236955319" target="_blank" rel="noopener">الموقع على الخريطة</a>
           <a class="btn ghost" id="cal-wedding" href="#" target="_blank" rel="noopener">أضف إلى الرزنامة</a>
         </div>
       </article>
+    </section>
 
-    </div>
-  </section>
-</main>
+    <!-- ===== El 5atma ===== -->
+    <section class="sec closing reveal">
+      <svg class="swans" viewBox="0 0 200 110" aria-hidden="true">
+        <ellipse cx="100" cy="92" rx="95" ry="12" fill="#CFE7F1" opacity=".7"/>
+        <g class="bob"><g transform="translate(64 84)"><use href="#swan"/></g></g>
+        <g class="bob" style="animation-delay:-2s"><g transform="translate(136 84) scale(-1 1)"><use href="#swan"/></g></g>
+        <g fill="#E59BC0">
+          <path class="rise" d="M100 66c-6-6-3-11 0-7c3-4 6 1 0 7z"/>
+          <path class="rise" style="--dx:-12px;animation-delay:-1.5s" d="M100 66c-6-6-3-11 0-7c3-4 6 1 0 7z"/>
+          <path class="rise" style="--dx:12px;animation-delay:-3s" d="M100 66c-6-6-3-11 0-7c3-4 6 1 0 7z"/>
+        </g>
+      </svg>
+      <p class="closing-line">و في انتظاركم، حضوركم شرف لنا</p>
+      <p class="sign">عائلة المرحوم يوسف رحماني</p>
+      <p class="latin" lang="en" dir="ltr">Mohamed &amp; Ghada</p>
+    </section>
 
-<footer class="closing">
-  <svg class="corner bl" aria-hidden="true"><use href="#floral"/></svg>
-  <p class="closing-line"><span class="gold">و في انتظاركم، حضوركم شرف لنا</span></p>
-  <p class="sign">عائلة المرحوم يوسف رحماني</p>
-  <p class="latin" lang="en" dir="ltr">Mohamed &amp; Ghada</p>
-</footer>
+  </main>
+</div>
 
-<!-- Musique (optionnel): 7ott fichier esmou music.mp3 m3a index.html -->
+<!-- Musique: fichier esmou music.mp3 f nafs el blasa m3a index.html -->
 <audio id="music" src="music.mp3" loop preload="none"></audio>
-<button class="music-btn" id="musicBtn" aria-label="تشغيل أو إيقاف الموسيقى" aria-pressed="true" hidden>♫</button>
+<button class="music-btn" id="musicBtn" aria-label="تشغيل أو إيقاف الموسيقى" aria-pressed="true" hidden>
+  <span></span><span></span><span></span><span></span>
+</button>
 
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var intro = document.getElementById('intro');
-  var envelope = document.getElementById('envelope');
+  var gate = document.getElementById('gate');
   var audio = document.getElementById('music');
   var musicBtn = document.getElementById('musicBtn');
-  var opened = false;
+  var opened = false, wantMusic = false;
 
-  // Musique
+  /* ---- Musique ---- */
   function startMusic(){
-    audio.play().then(function(){ musicBtn.hidden = false; }).catch(function(){});
+    var p = audio.play();
+    if (p && p.then){
+      p.then(function(){ wantMusic = true; musicBtn.hidden = false; }).catch(function(){});
+    }
   }
   musicBtn.addEventListener('click', function(){
-    if (audio.paused){ audio.play(); musicBtn.setAttribute('aria-pressed','true'); }
-    else { audio.pause(); musicBtn.setAttribute('aria-pressed','false'); }
+    if (audio.paused){
+      audio.play(); wantMusic = true; musicBtn.setAttribute('aria-pressed', 'true');
+    } else {
+      audio.pause(); wantMusic = false; musicBtn.setAttribute('aria-pressed', 'false');
+    }
+  });
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) audio.pause();
+    else if (wantMusic) audio.play().catch(function(){});
   });
 
-  // Wrod dhahbi yta7 ba3d ma tet7all el envelope
-  function petalBurst(){
+  /* ---- Warda ta7 ---- */
+  function startPetals(){
     if (reduce) return;
     var box = document.getElementById('petals');
-    for (var i = 0; i < 28; i++){
+    for (var i = 0; i < 18; i++){
       var p = document.createElement('i');
       p.style.left = (Math.random() * 100) + '%';
-      p.style.setProperty('--s', (0.6 + Math.random() * 0.8).toFixed(2));
-      p.style.setProperty('--x', Math.round(Math.random() * 120 - 60) + 'px');
-      p.style.animationDuration = (5 + Math.random() * 4).toFixed(1) + 's';
-      p.style.animationDelay = (Math.random() * 2.5).toFixed(1) + 's';
+      p.style.setProperty('--s', (0.6 + Math.random() * 0.7).toFixed(2));
+      p.style.setProperty('--x', Math.round(Math.random() * 140 - 70) + 'px');
+      p.style.animationDuration = (7 + Math.random() * 6).toFixed(1) + 's';
+      p.style.animationDelay = (Math.random() * 8).toFixed(1) + 's';
       box.appendChild(p);
     }
-    setTimeout(function(){ box.remove(); }, 12000);
   }
 
-  // T7al el envelope
+  /* ---- Ta7let el bab ---- */
   function openInvite(){
     if (opened) return;
     opened = true;
-    intro.classList.add('opening');
-    envelope.classList.add('open');
+    gate.classList.add('open');
+    document.body.classList.add('opened');
     startMusic();
     setTimeout(function(){
-      intro.classList.add('gone');
+      gate.classList.add('gone');
       document.body.classList.remove('locked');
-      document.body.classList.add('opened');
-      petalBurst();
-    }, reduce ? 0 : 2300);
+      startPetals();
+    }, reduce ? 0 : 1900);
   }
-  envelope.addEventListener('click', openInvite);
+  gate.addEventListener('click', openInvite);
 
-  // Compte à rebours (wa9t tounes UTC+1)
+  /* ---- Animation ki tahbet ---- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* ---- Compte à rebours (wa9t tounes) ---- */
   var weddingTime = new Date('2026-10-30T15:00:00+01:00').getTime();
   var cdBox = document.getElementById('countdown');
   var D = document.getElementById('cd-d'), H = document.getElementById('cd-h'),
@@ -372,20 +716,21 @@
   function tick(){
     var diff = weddingTime - Date.now();
     if (diff <= 0){
-      cdBox.innerHTML = '<p class="cd-done"><span class="gold">اليوم يوم الفرح</span></p>';
+      cdBox.innerHTML = '<p class="cd-done">اليوم يوم الفرح</p>';
       return false;
     }
     D.textContent = Math.floor(diff / 864e5);
     H.textContent = pad(Math.floor(diff / 36e5) % 24);
     M.textContent = pad(Math.floor(diff / 6e4) % 60);
     S.textContent = pad(Math.floor(diff / 1e3) % 60);
+    S.classList.remove('pop'); void S.offsetWidth; S.classList.add('pop');
     return true;
   }
   if (tick()){
     var timer = setInterval(function(){ if (!tick()) clearInterval(timer); }, 1000);
   }
 
-  // Liens Google Calendar
+  /* ---- Google Calendar ---- */
   function gcal(title, dates, place){
     return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       + '&text=' + encodeURIComponent(title)
