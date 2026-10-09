@@ -398,12 +398,59 @@ body.opened .write{clip-path:inset(0 0 0 0)}
 </div>
 
 <!-- ===== 2. El 9aws w el 7mem ===== -->
+<style>
+  .dove{width:84cqw;height:auto;filter:drop-shadow(0 12px 16px rgba(120,90,60,.22))}
+  .dove.d2{width:64cqw}
+  #passage .d3{display:none}
+  .dbob{animation:dbob .52s ease-in-out infinite}
+  .wN{transform-origin:175px 175px;animation:flapN .52s ease-in-out infinite}
+  .wF{transform-origin:188px 168px;animation:flapF .52s ease-in-out infinite}
+  @keyframes dbob{0%,100%{transform:translateY(4px)}50%{transform:translateY(-6px)}}
+  @keyframes flapN{0%,100%{transform:rotate(12deg)}50%{transform:rotate(-58deg)}}
+  @keyframes flapF{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(50deg)}}
+  #passage.show .d1{animation:birdA 3s cubic-bezier(.4,0,.6,1) 1.2s both}
+  #passage.show .d2{animation:birdB 3s cubic-bezier(.4,0,.6,1) 1.5s both}
+  @keyframes birdA{
+    0%{opacity:1;transform:translate(-75cqw,70cqh) rotate(-10deg) scale(1.05)}
+    35%{opacity:1;transform:translate(-14cqw,14cqh) rotate(-4deg) scale(1)}
+    60%{opacity:1;transform:translate(-4cqw,6cqh) rotate(-8deg) scale(.95)}
+    100%{opacity:1;transform:translate(100cqw,-70cqh) rotate(-20deg) scale(.55)}
+  }
+  @keyframes birdB{
+    0%{opacity:1;transform:translate(-70cqw,115cqh) rotate(-8deg) scale(1)}
+    35%{opacity:1;transform:translate(-10cqw,60cqh) rotate(-3deg) scale(1)}
+    60%{opacity:1;transform:translate(0cqw,52cqh) rotate(-8deg) scale(.96)}
+    100%{opacity:1;transform:translate(105cqw,-15cqh) rotate(-18deg) scale(.55)}
+  }
+</style>
 <div id="passage" class="frame-fixed" aria-hidden="true">
   <svg class="p-scene" viewBox="0 0 400 760" preserveAspectRatio="xMidYMid slice">
     <defs>
       <linearGradient id="pSky" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stop-color="#EFCFAC"/><stop offset=".5" stop-color="#F7E4CC"/><stop offset="1" stop-color="#FBF1E4"/>
       </linearGradient>
+      <linearGradient id="doveG" x1="0" y1="0" x2=".3" y2="1">
+        <stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#F6F2EE"/><stop offset="1" stop-color="#E3DCD4"/>
+      </linearGradient>
+      <g id="fth">
+        <path d="M0-6C18-9 50-9 64-3C68-1 68 2 64 4C50 9 18 9 0 6Z"/>
+        <path d="M3 0H60" fill="none" stroke="#DCD5CD" stroke-width=".7"/>
+      </g>
+      <g id="dWing">
+        <use href="#fth" transform="translate(-36 -104) rotate(262) scale(1.05 1)"/>
+        <use href="#fth" transform="translate(-37 -102) rotate(249) scale(1.18 1)"/>
+        <use href="#fth" transform="translate(-38 -100) rotate(236) scale(1.22 1)"/>
+        <use href="#fth" transform="translate(-39 -97) rotate(223) scale(1.18 1)"/>
+        <use href="#fth" transform="translate(-40 -94) rotate(210) scale(1.1 1)"/>
+        <use href="#fth" transform="translate(-40 -90) rotate(198) scale(1 1)"/>
+        <use href="#fth" transform="translate(-34 -80) rotate(190) scale(.92 1)"/>
+        <use href="#fth" transform="translate(-30 -64) rotate(184) scale(.9 1)"/>
+        <use href="#fth" transform="translate(-25 -48) rotate(178) scale(.86 1)"/>
+        <use href="#fth" transform="translate(-20 -32) rotate(172) scale(.82 1)"/>
+        <use href="#fth" transform="translate(-15 -16) rotate(166) scale(.76 1)"/>
+        <path d="M8 4C14-40 4-80-30-116C-44-112-52-100-50-86C-44-60-36-30-26 2C-18 8 0 10 8 4Z"/>
+        <path d="M-6-20q-8 6-16 4M-12-44q-8 6-16 4M-20-68q-8 6-16 4M-30-92q-6 5-12 3" fill="none" stroke="#E0D9D0" stroke-width=".9"/>
+      </g>
     </defs>
     <rect width="400" height="760" fill="url(#pSky)"/>
     <g filter="url(#blur6)">
@@ -417,6 +464,7 @@ body.opened .write{clip-path:inset(0 0 0 0)}
       <path d="M106 330a17 20 0 0 1 34 0zM260 330a17 20 0 0 1 34 0z" fill="#EDD5B9"/>
       <ellipse cx="200" cy="470" rx="150" ry="36" fill="#DCC8A6"/>
     </g>
+    <ellipse cx="200" cy="330" rx="150" ry="170" fill="url(#glowG)" opacity=".8"/>
     <path d="M182 445H218L300 760H100Z" fill="#F7EBDA"/>
     <g fill="#F5E6D2" stroke="#E6D3BA" stroke-width=".6">
       <rect x="150" y="452" width="100" height="10"/><rect x="138" y="462" width="124" height="12"/><rect x="124" y="474" width="152" height="14"/>
@@ -428,12 +476,26 @@ body.opened .write{clip-path:inset(0 0 0 0)}
     <circle class="flick" cx="110" cy="700" r="40" fill="url(#glowG)"/>
     <circle class="flick" cx="290" cy="700" r="40" fill="url(#glowG)"/>
   </svg>
-  <svg class="dove d1" viewBox="0 0 120 90">
-    <path class="wingB" d="M62 48C58 22 44 8 26 2C36 14 40 24 42 32C34 26 26 24 18 26C30 34 44 42 58 50Z" fill="#EDE7E0"/>
-    <path d="M20 55C35 45 60 42 80 45C92 46 100 40 106 36C110 34 114 36 112 40L104 44C100 52 90 58 76 60C60 62 40 64 26 70C18 72 10 70 6 74C8 66 14 60 20 55Z" fill="#FFFFFF" stroke="#E4DCD2"/>
-    <path d="M112 40l6 1-6 2z" fill="#D8B496"/>
-    <circle cx="104" cy="39" r="1.4" fill="#4A3E36"/>
-    <path class="wingA" d="M58 48C50 20 30 6 10 4C24 14 30 24 34 30C24 24 16 22 8 24C22 32 36 40 52 50Z" fill="#FFFFFF" stroke="#E4DCD2"/>
+
+  <svg class="dove d1" viewBox="0 0 320 300">
+    <g class="dbob">
+      <g class="wF"><use href="#dWing" transform="translate(188 168) scale(-.86 .86)" fill="#EFEAE4" stroke="#D5CDC2" stroke-width=".9"/></g>
+      <g fill="#FFFFFF" stroke="#D9D1C7" stroke-width=".8">
+        <use href="#fth" transform="translate(128 222) rotate(148) scale(.9 1)"/>
+        <use href="#fth" transform="translate(128 222) rotate(157) scale(.95 1)"/>
+        <use href="#fth" transform="translate(128 222) rotate(166) scale(1 1)"/>
+        <use href="#fth" transform="translate(128 222) rotate(175) scale(.98 1)"/>
+        <use href="#fth" transform="translate(128 222) rotate(184) scale(.92 1)"/>
+        <use href="#fth" transform="translate(128 222) rotate(193) scale(.85 1)"/>
+      </g>
+      <path d="M123 218C145 200 165 178 191 162C201 154 205 144 215 140C227 136 237 144 238 154C239 162 231 168 225 174C219 188 211 204 195 216C177 230 151 234 123 228Z" fill="url(#doveG)" stroke="#D9D1C7" stroke-width=".8"/>
+      <path d="M206 188q8 4 14 0M200 200q8 4 14 0M190 211q8 4 13 0" fill="none" stroke="#E2DBD3" stroke-width=".9"/>
+      <path d="M170 228l-4 10M177 229l-2 10" stroke="#CFA9A0" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M237 151L252 155L237 159Z" fill="#D9C1B6"/>
+      <circle cx="227" cy="150" r="2.7" fill="#2E2622"/>
+      <circle cx="227.8" cy="149.2" r=".8" fill="#FFFFFF"/>
+      <g class="wN"><use href="#dWing" transform="translate(175 175)" fill="#FFFFFF" stroke="#D6CEC4" stroke-width=".8"/></g>
+    </g>
   </svg>
 </div>
 
