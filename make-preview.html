@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview WhatsApp</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;padding:24px;background:#F3ECE8;font-family:sans-serif;text-align:center;color:#5A4A44}
+  canvas{width:100%;max-width:900px;height:auto;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+  button{margin-top:18px;padding:12px 30px;font-size:18px;border:0;border-radius:30px;background:#B48A4C;color:#fff;cursor:pointer}
+</style>
+</head>
+<body>
+<canvas id="c" width="1200" height="630"></canvas><br>
+<button id="dl">Télécharger preview.jpg</button>
+<p>Enzel 3al bouton bech tsajjel el taswira.</p>
+
+<script>
+var m = '<path d="M8 132C38 104 58 92 68 62S98 22 132 8"/>'
+  + '<path d="M70 52a4 4 0 1 1-6 4a8 8 0 1 1 13-6a12 12 0 1 1-20 9"/>'
+  + '<path d="M54 66q14 16 30 0M56 48q12-12 26 0"/>'
+  + '<path d="M40 100q-14-4-18-16q14 2 18 16zM48 92q8-14 22-14q-6 12-22 14z"/>'
+  + '<path d="M104 26q2-14 16-18q-2 14-16 18zM98 33q-14 0-20-10q14-2 20 10z"/>'
+  + '<circle cx="22" cy="26" r="3.5"/><circle cx="27" cy="30" r="3.5"/><circle cx="25" cy="36" r="3.5"/><circle cx="19" cy="36" r="3.5"/><circle cx="17" cy="30" r="3.5"/>'
+  + '<path d="M108 104q10-10 20 0q-4 10-12 6"/>';
+
+function flap(points, color){
+  return '<g filter="url(#sh)"><polygon points="' + points + '" fill="' + color + '"/>'
+       + '<polygon points="' + points + '" fill="url(#emb)"/></g>';
+}
+
+var svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+  <pattern id="emb" patternUnits="userSpaceOnUse" width="140" height="140">
+    <g fill="none" stroke-width="1.3" stroke-linecap="round">
+      <g stroke="#FFF2EE" stroke-opacity=".9" transform="translate(-.8 -.8)">${m}</g>
+      <g stroke="#C99A8E" stroke-opacity=".55" transform="translate(.8 .8)">${m}</g>
+    </g>
+  </pattern>
+  <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+    <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#783E34" flood-opacity=".22"/>
+  </filter>
+  <filter id="sealSh" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#69412A" flood-opacity=".32"/>
+  </filter>
+  <radialGradient id="vig" cx="50%" cy="52%" r="70%">
+    <stop offset="0" stop-color="#FFFFFF" stop-opacity=".18"/>
+    <stop offset="1" stop-color="#6E372D" stop-opacity=".16"/>
+  </radialGradient>
+  <radialGradient id="waxG" gradientUnits="userSpaceOnUse" cx="76" cy="64" r="150">
+    <stop offset="0" stop-color="#FFFDF6"/><stop offset=".55" stop-color="#F3EADA"/><stop offset="1" stop-color="#D8C8AC"/>
+  </radialGradient>
+  <radialGradient id="waxIn" cx="50%" cy="45%" r="60%">
+    <stop offset="0" stop-color="#F8F1E4"/><stop offset="1" stop-color="#EADFCB"/>
+  </radialGradient>
+  <g id="sealSwan">
+    <path d="M-26 8C-36 4-42-4-44-12C-34-6-28-8-20-10C-6-14 14-12 22-4C28 2 28 6 24 9C8 14-14 13-26 8Z"/>
+    <path d="M16-4C10-18 0-30 6-42C12-54 30-50 30-36" fill="none" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="30" cy="-35" r="5"/>
+    <path d="M32-33L36-25L30-29Z"/>
+  </g>
+  <g id="bow">
+    <path d="M0 0C-5-7-16-8-15-1C-14 4-6 3 0 0ZM0 0C5-7 16-8 15-1C14 4 6 3 0 0ZM-1 1L-6 10M1 1L6 10"/>
+    <circle r="2.6"/>
+  </g>
+  <path id="wavy" d="M160 100A13 13 0 0 1 155.43 122.96A13 13 0 0 1 142.43 142.43A13 13 0 0 1 122.96 155.43A13 13 0 0 1 100 160A13 13 0 0 1 77.04 155.43A13 13 0 0 1 57.57 142.43A13 13 0 0 1 44.57 122.96A13 13 0 0 1 40 100A13 13 0 0 1 44.57 77.04A13 13 0 0 1 57.57 57.57A13 13 0 0 1 77.04 44.57A13 13 0 0 1 100 40A13 13 0 0 1 122.96 44.57A13 13 0 0 1 142.43 57.57A13 13 0 0 1 155.43 77.04A13 13 0 0 1 160 100Z"/>
+</defs>
+
+<rect width="1200" height="630" fill="#E2C1B6"/>
+<rect width="1200" height="630" fill="url(#emb)"/>
+${flap('0,0 648,328 0,630', '#E7C8BD')}
+${flap('1200,0 552,328 1200,630', '#E7C8BD')}
+${flap('0,630 600,380 1200,630', '#EBCFC5')}
+${flap('0,0 1200,0 600,352', '#EFD6CD')}
+<rect width="1200" height="630" fill="url(#vig)"/>
+
+<g filter="url(#sealSh)">
+  <g transform="translate(485 237) scale(1.15)">
+    <g fill="url(#waxG)">
+      <circle cx="100" cy="100" r="92"/>
+      <circle cx="182.7" cy="130.1" r="11"/><circle cx="92.3" cy="187.7" r="11"/><circle cx="17.3" cy="130.1" r="11"/>
+      <circle cx="43.4" cy="32.6" r="11"/><circle cx="144" cy="23.8" r="11"/>
+    </g>
+    <circle cx="100" cy="100" r="74" fill="url(#waxIn)"/>
+    <circle cx="100" cy="100" r="74" fill="none" stroke="#D3C3A6" stroke-width="2.5" transform="translate(1 1.5)"/>
+    <circle cx="100" cy="100" r="74" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity=".8" transform="translate(-1 -1)"/>
+    <g fill="none" stroke-width="1.8">
+      <use href="#wavy" stroke="#FFFFFF" transform="translate(-.8 -.8)"/>
+      <use href="#wavy" stroke="#CDBB9A" transform="translate(.8 .8)"/>
+      <use href="#bow" stroke="#FFFFFF" transform="translate(99.2 39.2)"/>
+      <use href="#bow" stroke="#CDBB9A" transform="translate(100.8 40.8)"/>
+      <use href="#bow" stroke="#FFFFFF" transform="translate(99.2 159.2) rotate(180)"/>
+      <use href="#bow" stroke="#CDBB9A" transform="translate(100.8 160.8) rotate(180)"/>
+    </g>
+    <g fill="#D2C2A4" stroke="#D2C2A4" transform="translate(1 1.3)">
+      <use href="#sealSwan" transform="translate(80 122) scale(.55)"/>
+      <use href="#sealSwan" transform="translate(120 122) scale(-.55 .55)"/>
+    </g>
+    <g fill="#FCF8EF" stroke="#FCF8EF">
+      <use href="#sealSwan" transform="translate(80 122) scale(.55)"/>
+      <use href="#sealSwan" transform="translate(120 122) scale(-.55 .55)"/>
+    </g>
+    <g fill="none" stroke="#D5C6AA" stroke-width="1.6" stroke-linecap="round">
+      <path d="M-22-3C-10-11 6-10 15-3" transform="translate(80 122) scale(.55)"/>
+      <path d="M-22-3C-10-11 6-10 15-3" transform="translate(120 122) scale(-.55 .55)"/>
+    </g>
+  </g>
+</g>
+</svg>`;
+
+var canvas = document.getElementById('c');
+var ctx = canvas.getContext('2d');
+
+function drawText(){
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#9C7440';
+  ctx.shadowColor = 'rgba(255,255,255,.7)';
+  ctx.shadowBlur = 8;
+  ctx.font = '78px "Great Vibes"';
+  ctx.fillText('Mohamed & Ghada', 600, 552);
+  ctx.font = '600 28px "Cormorant Garamond"';
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '6px';
+  ctx.fillText('30 . 10 . 2026', 600, 598);
+}
+
+Promise.all([
+  document.fonts.load('78px "Great Vibes"'),
+  document.fonts.load('600 28px "Cormorant Garamond"')
+]).then(function(){
+  var url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
+  var img = new Image();
+  img.onload = function(){
+    ctx.drawImage(img, 0, 0, 1200, 630);
+    URL.revokeObjectURL(url);
+    drawText();
+  };
+  img.src = url;
+});
+
+document.getElementById('dl').addEventListener('click', function(){
+  canvas.toBlob(function(blob){
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'preview.jpg';
+    a.click();
+  }, 'image/jpeg', 0.9);
+});
+</script>
+</body>
+</html>
